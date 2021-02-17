@@ -19,3 +19,7 @@ previous_region <- function(current_region) {
   
   region_lookup$shortname[prev_index]
 }
+
+make_url_hash <- function(city_name) paste0("#",str_replace_all(city_name, "\\s", "-"))
+parse_url_hash <- function(hash_text) str_replace_all(hash_text, "-", " ") %>% str_remove("#")
+

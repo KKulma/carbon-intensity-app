@@ -1,9 +1,11 @@
 library(shiny)
 library(dygraphs)
+library(xts)
 library(dplyr)
 library(bslib)
 library(here)
 library(thematic)
+library(stringr)
 # library(patchwork)
 # library(ggtext)
 # library(glue)
@@ -18,6 +20,7 @@ if (getOption("cache", TRUE)) {
   print("Disabling caching")
 }
 
+source("functions.R")
 # Builds theme object to be supplied to ui
 my_theme <- bs_theme(
   bootswatch = "cerulean",
