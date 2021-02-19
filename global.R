@@ -1,14 +1,17 @@
 library(shiny)
+library(shinyWidgets)
 library(dygraphs)
+library(ggplot2)
+library(plotly)
 library(xts)
 library(dplyr)
 library(bslib)
 library(here)
-library(thematic)
+# library(thematic)
 library(stringr)
-# library(patchwork)
-# library(ggtext)
-# library(glue)
+library(lubridate)
+library(viridis)
+
 
 # Default is use caching
 if (getOption("cache", TRUE)) {
@@ -23,9 +26,7 @@ if (getOption("cache", TRUE)) {
 source("functions.R")
 # Builds theme object to be supplied to ui
 my_theme <- bs_theme(
-  bootswatch = "cerulean",
-  base_font = font_google("Righteous"),
-  "font-size-base" = "1.1rem"
+  bootswatch = "litera"
 ) %>%
   bs_add_rules(
     "
