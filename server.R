@@ -41,22 +41,57 @@ server <- function(input, output, session) {
     df_data <- daily_ci %>%
       filter(shortname == input$region)
     
-    xts(x = df_data$renewable_perc,
-        order.by = df_data$from_dt)
+    
     # Our results will always be the same for a given region, so cache on that key
     
   }) %>%
     bindCache(input$region)
   
-  output$prev_region_label <- renderText({
-    previous_region()
+  
+  output$carbon_plot <- renderUI({
+    if (input$heatmap == TRUE) {
+      plotlyOutput(outputId = 'heatplot')
+    } else {
+      dygraphOutput(outputId = "dyplot")
+    }
   })
   
-  output$carbon_plot <- renderDygraph({
+  output$dyplot <- renderDygraph({
     req(region_data())
-    dygraph(region_data()) %>% 
-    dyRangeSelector()
+    xts_data <-  xts(x = region_data()$renewable_perc,
+                     order.by = region_data()$from_dt)
+    dygraph(xts_data) %>%
+      dyRangeSelector()
   }) %>%
     bindCache(input$region)
+  
+  output$heatplot <- renderPlotly({
+    req(region_data())
+    
+    granular_df <- region_data() %>%
+      mutate(
+        day = day(from_dt),
+        month = month(from_dt, label = TRUE, abbr = TRUE),
+        year = year(from_dt)
+      )
+    
+    print(
+      ggplotly(
+        ggplot(granular_df, aes(month, day, fill = renewable_perc)) +
+          geom_tile(color = "white", size = 0.1) +
+          scale_fill_viridis(name = "% Renewable", option = "C") +
+          facet_grid( ~ year) +
+          theme_minimal(base_size = 8) +
+          labs(
+            title = paste("Daily Carbon Intensity in", input$region),
+            y = "Day"
+          ) +
+          theme(legend.position = "bottom")
+      )
+    )
+  }) %>%
+    bindCache(input$region)
+  
+  
   
 }
