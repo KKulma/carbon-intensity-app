@@ -7,7 +7,6 @@ library(xts)
 library(dplyr)
 library(bslib)
 library(here)
-# library(thematic)
 library(stringr)
 library(lubridate)
 library(viridis)
@@ -23,30 +22,18 @@ if (getOption("cache", TRUE)) {
   print("Disabling caching")
 }
 
-source("functions.R")
 # Builds theme object to be supplied to ui
-my_theme <- bs_theme(
-  bootswatch = "litera"
-) %>%
-  bs_add_rules(
-    "
-    #source_link {
-      position: fixed;
-      top: 5px;
-      right: 5px;
-      font-size: 0.9rem;
-      font-weight: lighter;
-    }"
-  )
+my_theme <- bs_theme(bootswatch = "litera",
+                     base_font = font_google("Merriweather Sans", local = TRUE)) # Arimo
 
 # Let thematic know to use the font from bs_lib
 # thematic_on(font = "auto")
 
-# data import and preprocessing 
-# import carbon intensity data 
+# data import and preprocessing
+# import carbon intensity data
 daily_ci <- readRDS(here("data/20210217-daily-ci.rds"))
 
-# region helpers 
+# region helpers
 region_lookup <- daily_ci %>%
   select(regionid, shortname) %>%
   arrange(regionid) %>%
