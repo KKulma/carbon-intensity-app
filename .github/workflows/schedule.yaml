@@ -30,7 +30,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c('intensegRid','dplyr','lubridate','logger'))
+          install.packages(c('httr','intensegRid','dplyr','lubridate','logger'))
         shell: Rscript {0}
         
       - name: Update data
