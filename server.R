@@ -22,6 +22,8 @@ server <- function(input, output, session) {
     dygraph(xts_data) %>%
       dyRangeSelector() %>%
       dyAxis("x", drawGrid = FALSE) %>%
+      dyAxis("y",
+             axisLabelFormatter = "function(v){return (v).toFixed(0)+ '%'}") %>%      
       dySeries(label = "% renewable") %>% 
       dyOptions(fillGraph = TRUE, fillAlpha = 0.4, colors = viridis(1))
   }) %>%
