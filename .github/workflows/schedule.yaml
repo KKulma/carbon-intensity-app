@@ -1,9 +1,8 @@
 name: append daily CI data
-name: update carbon intensity data
 
-on:
-  schedule:  
-    - cron:  '0 6 * * *'
+on: [push]
+#  schedule:  
+#    - cron:  '0 6 * * *'
 jobs:
   run_container:
     runs-on: ubuntu-latest
