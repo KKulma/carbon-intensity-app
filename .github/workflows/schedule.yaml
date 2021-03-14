@@ -15,4 +15,4 @@ jobs:
 #          ref: 'main'
       - name: Update data
         run: |
-          bash ./data_raw/update-data.sh
+          bash ./data-raw/update-data.sh
