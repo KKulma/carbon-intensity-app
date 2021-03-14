@@ -15,13 +15,4 @@ jobs:
           ref: 'main'
       - name: Update data
         run: |
-          source("data-raw/update-data.R")
-        shell: Rscript {0}
-      - name: Commit files
-        run: |
-          git config --local user.email "katarzyna.kulma@gmail.com"
-          git config --local user.name "Kasia"
-          git add --all
-          git commit -am "update daily data"
-          git push 
-
+          bash .data_raw/update-data.sh
