@@ -9,10 +9,10 @@ jobs:
     container:
       image: kasiatemp/ng-update:daily
     steps:
-      - name: checkout_repo
+      - name: Checkout repo
         uses: actions/checkout@v2
-#        with: 
-#          ref: 'main'
+        with: 
+          ref: 'main'
       - name: Update data
         run: |
-          bash .data_raw/update-data.sh
+          bash ./data-raw/update-data.sh
