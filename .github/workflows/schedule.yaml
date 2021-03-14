@@ -1,5 +1,4 @@
 name: append daily CI data
-name: update carbon intensity data
 
 on: [push]
 #  schedule:  
