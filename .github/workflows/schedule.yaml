@@ -1,8 +1,8 @@
 name: append daily CI data
 
-on: [push]
-#  schedule:  
-#    - cron:  '0 6 * * *'
+on: 
+ schedule:  
+   - cron:  '0 6 * * *'
 jobs:
   run_container:
     runs-on: ubuntu-latest
@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        # with: 
-        #   ref: 'main'
+        with: 
+          ref: 'main'
       - name: Update data
         run: |
           bash ./data-raw/update-data.sh
