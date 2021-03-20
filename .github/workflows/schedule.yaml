@@ -1,0 +1,18 @@
+name: append daily CI data
+
+on: 
+ schedule:  
+   - cron:  '0 6 * * *'
+jobs:
+  run_container:
+    runs-on: ubuntu-latest
+    container:
+      image: kasiatemp/ng-update:daily
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with: 
+          ref: 'main'
+      - name: Update data
+        run: |
+          bash ./data-raw/update-data.sh
