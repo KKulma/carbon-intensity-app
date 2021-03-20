@@ -20,10 +20,7 @@ server <- function(input, output, session) {
     xts_data <-  xts(x = region_data()$renewable_perc,
                      order.by = region_data()$from_dt)
     dygraph(xts_data) %>%
-      dyRangeSelector() %>%
-      dyAxis("x", drawGrid = FALSE) %>%
-      dySeries(label = "% renewable") %>% 
-      dyOptions(fillGraph = TRUE, fillAlpha = 0.4, colors = viridis(1))
+      dyRangeSelector()
   }) %>%
     bindCache(input$region)
   
