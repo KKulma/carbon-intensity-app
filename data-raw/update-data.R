@@ -6,10 +6,12 @@ library(logger)
 
 data_path <- "data/daily-ci.rds"
 
-transform_ci <- function(raw) {
-  raw %>%
-    dplyr::mutate(from_dt = lubridate::as_date(from),
-                  is_renewable = dplyr::if_else(fuel %in% c("nuclear", "hydro", "solar", "wind"), 1, 0)) %>%
+transform_ci <- function(raw_df, from_date) {
+  raw_df %>%
+    dplyr::mutate(
+      from_dt = from_date,
+      is_renewable = dplyr::if_else(fuel %in% c("nuclear", "hydro", "solar", "wind"), 1, 0)
+    ) %>%
     dplyr::filter(is_renewable == 1) %>%
     dplyr::group_by(from, from_dt, regionid, dnoregion, shortname) %>%
     dplyr::summarise(total_perc = sum(perc)) %>% # calculate renewable perc by 1/2 hour interval
@@ -30,7 +32,7 @@ intense_data <-
 logger::log_info("update rds file")
 if (!is.null(intense_data)) {
   # export daily summary
-  new_entries = transform_ci(intense_data)
+  new_entries = transform_ci(intense_data, start)
   old_data <- readRDS(data_path)
   new_data <- rbind(old_data, new_entries)
   saveRDS(new_data, data_path)
