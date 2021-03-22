@@ -1,0 +1,20 @@
+name: append daily CI data
+
+on: push
+jobs:
+  run_container:
+    runs-on: ubuntu-latest
+    container:
+      image: kasiatemp/ng-update:shiny
+    env:
+      SHINY_ACC_NAME=${{secrets.SHINY_ACC_NAME}} 
+      TOKEN=${{secrets.TOKEN}}
+      SECRET=${{secrets.SECRET}}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with: 
+          ref: 'main'
+      - name: Deploy app
+        run: |
+          bash Rscript deploy.R
