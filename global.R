@@ -31,7 +31,7 @@ my_theme <- bs_theme(bootswatch = "litera",
 
 # data import and preprocessing
 # import carbon intensity data
-daily_ci <- readRDS(here("data/20210217-daily-ci.rds"))
+daily_ci <- readRDS(here("data/daily-ci.rds"))
 
 # region helpers
 region_lookup <- daily_ci %>%
