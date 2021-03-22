@@ -1,10 +1,6 @@
 name: append daily CI data
 
 on: push
-env:
-        SHINY_ACC_NAME=${{secrets.SHINY_ACC_NAME}} 
-        TOKEN=${{secrets.TOKEN}}
-        SECRET=${{secrets.SECRET}}
 jobs:
   run_container:
     runs-on: ubuntu-latest
@@ -16,5 +12,9 @@ jobs:
         with: 
           ref: 'main'
       - name: Deploy app
+        env: 
+          SHINY_ACC_NAME=${{secrets.SHINY_ACC_NAME}} 
+          TOKEN=${{secrets.TOKEN}}
+          SECRET=${{secrets.SECRET}}
         run: |
           bash Rscript deploy.R
