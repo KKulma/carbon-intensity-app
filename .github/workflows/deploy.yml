@@ -17,4 +17,4 @@ jobs:
           TOKEN: ${{secrets.TOKEN}}
           SECRET: ${{secrets.SECRET}}
         run: |
-          bash Rscript deploy.R
+          bash ./deploy/deploy.sh
