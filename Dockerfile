@@ -5,6 +5,7 @@ RUN apt-get update \
       xml2 \
       openssl \
       curl \
+      git \
       libcurl4-openssl-dev
 
 # copy R scripts and install dependencies 
