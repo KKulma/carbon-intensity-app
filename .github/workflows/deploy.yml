@@ -4,10 +4,6 @@ on: push
 jobs:
   run_container:
     runs-on: ubuntu-latest
-    env: 
-      SHINY_ACC_NAME=${{secrets.SHINY_ACC_NAME}} 
-      TOKEN=${{secrets.TOKEN}}
-      SECRET=${{secrets.SECRET}}
     container:
       image: kasiatemp/ng-update:shiny
     steps:
@@ -16,6 +12,9 @@ jobs:
         with: 
           ref: 'main'
       - name: Deploy app
-        
+        env:
+          SHINY_ACC_NAME: ${{secrets.SHINY_ACC_NAME}}
+          TOKEN: ${{secrets.TOKEN}}
+          SECRET: ${{secrets.SECRET}}
         run: |
           bash Rscript deploy.R
