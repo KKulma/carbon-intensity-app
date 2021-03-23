@@ -21,8 +21,8 @@ jobs:
           git config --local user.name 'Kasia'
           git config --local user.email 'katarzyna.kulma@gmail.com'
           git commit -m "Auto update of the daily data" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
