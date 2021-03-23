@@ -2,7 +2,7 @@ name: Deploy to shinyapps.io
 
 on: push
 jobs:
-  run_container:
+  re-deploy:
     runs-on: ubuntu-latest
     container:
       image: kasiatemp/ng-update:shiny

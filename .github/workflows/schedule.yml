@@ -4,7 +4,7 @@ on:
  schedule:  
    - cron:  '0 6 * * *'
 jobs:
-  run_container:
+  update_data:
     runs-on: ubuntu-latest
     container:
       image: kasiatemp/ng-update:daily
