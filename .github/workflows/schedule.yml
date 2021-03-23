@@ -18,10 +18,9 @@ jobs:
           bash ./data-raw/update-data.sh
       - name: Commit files
       run: |
-        git config --global user.name 'Kasia'
-        git config --global user.email 'katarzyna.kulma@gmail.com'
-        git add data/*
-        git commit -m "Auto update of the daily data"
+        git config --local user.name 'Kasia'
+        git config --local user.email 'katarzyna.kulma@gmail.com'
+        git commit -m "Auto update of the daily data" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
