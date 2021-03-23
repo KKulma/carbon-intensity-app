@@ -1,4 +1,4 @@
-name: append daily CI data
+name: Deploy to shinyapps.io
 
 on: push
 jobs:
