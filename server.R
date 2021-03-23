@@ -48,9 +48,12 @@ server <- function(input, output, session) {
           theme_minimal(base_size = 8) +
           labs(
             title = paste("Daily Carbon Intensity in", input$region),
-            y = "Day"
+            y = "Day",
+            x = ""
           ) +
-          theme(legend.position = "bottom")
+          theme(text = element_text(size=12),
+                axis.text.x = element_text(angle=90, hjust=1),
+                legend.position="bottom")
       )
     )
   }) %>%
