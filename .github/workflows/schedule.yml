@@ -1,4 +1,4 @@
-name: append daily CI data
+name: update data
 
 on: 
  schedule:  
