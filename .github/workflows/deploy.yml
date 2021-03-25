@@ -1,6 +1,8 @@
 name: Deploy to shinyapps.io
 
 on: push
+  branches:
+    - main 
 jobs:
   re-deploy:
     runs-on: ubuntu-latest
