@@ -1,3 +1,5 @@
+[![update data](https://github.com/KKulma/carbon-intensity-app/actions/workflows/schedule.yml/badge.svg)](https://github.com/KKulma/carbon-intensity-app/actions/workflows/schedule.yml)        [![deploy](https://github.com/KKulma/carbon-intensity-app/actions/workflows/deploy.yml/badge.svg)](https://github.com/KKulma/carbon-intensity-app/actions/workflows/deploy.yml)
+
 # How much electricity is made from renewable sources in UK?
 
 Our electricity is not made equal and can be associated with higher or lower carbon intensity. How much of UK's electricity is produced using renewable sources? Has it decreased or increased over time? [This Shiny app](https://kasiakulma.shinyapps.io/carbon-intensity-app/) will help answer these questions.
