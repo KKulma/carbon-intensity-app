@@ -1,4 +1,4 @@
-[![append daily CI data](https://github.com/KKulma/carbon-intensity-app/actions/workflows/schedule.yml/badge.svg)](https://github.com/KKulma/carbon-intensity-app/actions/workflows/schedule.yml)        [![Deploy to shinyapps.io](https://github.com/KKulma/carbon-intensity-app/actions/workflows/deploy.yml/badge.svg)](https://github.com/KKulma/carbon-intensity-app/actions/workflows/deploy.yml)
+[![update data](https://github.com/KKulma/carbon-intensity-app/actions/workflows/schedule.yml/badge.svg)](https://github.com/KKulma/carbon-intensity-app/actions/workflows/schedule.yml)        [![deploy](https://github.com/KKulma/carbon-intensity-app/actions/workflows/deploy.yml/badge.svg)](https://github.com/KKulma/carbon-intensity-app/actions/workflows/deploy.yml)
 
 # How much electricity is made from renewable sources in UK?
 
