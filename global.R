@@ -24,7 +24,9 @@ if (getOption("cache", TRUE)) {
 
 # Builds theme object to be supplied to ui
 my_theme <- bs_theme(bootswatch = "litera",
-                     base_font = font_google("Merriweather Sans", local = TRUE)) # Arimo
+                     base_font = font_google("Merriweather Sans", local = TRUE)) %>% 
+            bs_add_rules("#header h2 { text-align: center }") # Arimo
+
 
 # Let thematic know to use the font from bs_lib
 # thematic_on(font = "auto")
