@@ -2,7 +2,7 @@ ui <- fluidPage(
   theme = my_theme,
   div(
     id = "header",
-    titlePanel(h1("How much UK electricity comes from low-carbon sources?", align = "center")),
+    titlePanel("How much UK electricity comes from low-carbon sources?"),
     div(
       style = "display: inline-block; width: 250px;",
       span("View as heatmap", style = "font-size: large;"),
