@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    image: carboni-app:dev
+    container_name: carboni-app-dev
+    entrypoint: ["R", "-e", "shiny::runApp(port=80, host='0.0.0.0')"]
+    ports:
+      - 8080:80
+    volumes:
+      - .:/opt/app

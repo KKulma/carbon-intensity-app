@@ -7,3 +7,4 @@ rsconnect/
 .DS_Store
 .Renviron
 README.html
+app_cache
