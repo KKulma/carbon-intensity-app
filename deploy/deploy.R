@@ -17,4 +17,5 @@ setAccountInfo(
 
 # Deploy the application.
 deployApp(appName = "carbon-intensity-app",
-          appTitle = "Carbon Intensity App")
+          appTitle = "Carbon Intensity App",
+          forceUpdate = TRUE)
