@@ -7,7 +7,7 @@ jobs:
   update_data:
     runs-on: ubuntu-latest
     container:
-      image: kasiatemp/ng-update:daily
+      image: kasiatemp/carbon-intensity-data:latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2

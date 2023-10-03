@@ -1,4 +1,9 @@
-FROM rocker/shiny:4.0.4
-RUN install2.r rsconnect shiny shinyWidgets dygraphs ggplot2 plotly xts dplyr bslib here stringr lubridate viridis intensegRid logger
+FROM rocker/shiny:latest
+RUN install2.r  --skipinstalled --error \
+    rsconnect shiny shinyWidgets \
+    dygraphs ggplot2 plotly xts viridis \
+    dplyr bslib here stringr lubridate  \
+    intensegRid logger \
+    && rm -rf /tmp/downloaded_packages
 
 WORKDIR /opt/app
