@@ -1,13 +1,13 @@
 name: update data
 
-on: 
- schedule:  
+on:
+ schedule:
    - cron:  '0 6 * * *'
 jobs:
   update_data:
     runs-on: ubuntu-latest
     container:
-      image: kasiatemp/carbon-intensity-data:latest
+      image: kasiatemp/ng-update:daily
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
